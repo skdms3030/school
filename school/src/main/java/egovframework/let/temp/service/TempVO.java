@@ -3,8 +3,10 @@ package egovframework.let.temp.service;
 import java.io.Serializable;
 import java.util.List;
 
+import egovframework.com.cmm.ComDefaultVO;
 
-public class TempVO implements Serializable {
+
+public class TempVO extends ComDefaultVO implements Serializable {
 
     /** 검색조건 */
     private String tempId;

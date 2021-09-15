@@ -27,7 +27,28 @@
 		)
 	</insert>
 	
-	<select id="selectList" resultMap="temp">
-		select * from lettemp2
+	<select id="selectTempList" resultType="egovMap">
+		select
+			temp_id
+			, temp_val
+		from lettemp2
+		limit #{recordCountPerPage} offset #{firstIndex}
 	</select>
+	
+	<select id="selectTempListCnt" resultType="java.lang.Integer">
+		select
+			count(*) cnt
+		from lettemp2
+	</select>
+	
+	<update id="updateTemp" parameterType="egovframework.let.temp.service.TempVO">
+		update lettemp2 set
+			temp_val = #{tempVal}
+		where temp_id = #{tempId}
+	</update>
+	
+	<delete id="deleteTemp" parameterType="egovframework.let.temp.service.TempVO">
+		delete from lettemp2
+			where temp_id = #{tempId}
+	</delete>
 </mapper>
