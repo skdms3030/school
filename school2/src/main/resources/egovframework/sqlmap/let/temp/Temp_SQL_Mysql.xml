@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Temp">
+
+<typeAlias alias="tempVO" type="egovframework.let.temp.service.TempVO"></typeAlias>
+
+	<resultMap id="temp" class="egovframework.let.temp.service.TempVO">
+		<result property="tempId" column="TEMP_ID"></result>
+		<result property="tempVal" column="TEMP_VAL"></result>
+	</resultMap>
+	
+	<select id="TempDAO.selectTemp" parameterClass="tempVO" resultMap="temp">
+		SELECT TEMP_ID, TEMP_VAL FROM lettemp WHERE TEMP_ID=#tempId#
+	</select>
+</sqlMap>
+
